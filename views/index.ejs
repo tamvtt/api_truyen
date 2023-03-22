@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+  <div class="playlist"></div>
+  </body>
+  <script !src="">
+    const playlist = document.querySelector('.playlist');
+    fetch("http://localhost:3000/list")
+            .then((response) => response.json())
+            .then((data) => {
+              const htmls = data.map((song, index) => {
+                return `
+                        <p class="author">${song.username}</p>
+                        <p class="author">${song.password}</p>
+                `;
+              });
+              playlist.innerHTML = htmls.join("");
+            })
+  </script>
+</html>
