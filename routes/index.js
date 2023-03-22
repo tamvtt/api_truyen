@@ -67,7 +67,7 @@ router.post('/login', async function (req, res) {
   });
   if (check != null) {
     alert('Login thành công');
-    res.render()
+    res.render('index', { title: 'Express' });
   } else if (username == '' || password == '') {
     alert('Chưa nhập Username hoặc Password');
   } else {
